@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Harsh Resume</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/ScrollTrigger.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+
+    <style>
+        body {
+            color: white;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+
+        .button-85 {
+            padding: 0.6em 2em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+          }
+          
+          .button-85:before {
+            content: "";
+            background: linear-gradient(
+              45deg,
+              #0000CC,
+              #3300CC,
+              #6600CC,
+              #0033CC,
+              #3333CC,
+              #6633CC,
+              #0066CC,
+              #3366CC,
+              #6666CC ,
+              #0099CC,
+              #3399CC,
+              #6699CC,
+              #ff0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+          }
+          
+          @keyframes glowing-button-85 {
+            0% {
+              background-position: 0 0;
+            }
+            50% {
+              background-position: 400% 0;
+            }
+            100% {
+              background-position: 0 0;
+            }
+          }
+          
+          .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #222;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+          }
+        .name {
+            color:#4890fe;
+        }
+
+        #alert {
+            padding: 10px;
+            margin: 40px;
+        }
+         
+        .pdf-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top:290px;
+
+        } 
+
+        .pdf-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        } 
+        
+        #name{
+            {% comment %} font-size:10%; {% endcomment %}
+            scale:1.4;
+        }
+        #display{
+            scale:1.1;
+        } 
+        #harsh-photo{
+            height:350px;
+            width:350px;
+            border-radius:50%;
+            border:1px solid blue;
+            padding:10px;
+        }
+        #lines{
+            display:block;
+            text-align:left;
+            margin:150px;
+            margin-top:20px;
+        }
+        #title{
+            color:#4890fe;
+            {% comment %} text-decoration:underline; {% endcomment %}
+        }
+    </style>
+</head>
+<body>
+
+    {% if request.session.username %} 
+        <br>
+        
+    <h1>Welcome {{ request.session.username }} </h1>
+    <h2>You are serving <span id="title">Real Time Login Portal </span></h2>
+        {% for message in messages %}
+         
+            <div class="alert alert-{{ message.tags }}" id="alert" role="alert">
+                {{ message }}
+            </div>
+            
+        {% endfor %}
+        <br>
+        <a href="/login_system/logout" ><button class="button-85" type="button">Logout</button></a>
+        <br><br>
+        <div class="container">
+        <div class="content" id="display">Here we display a information about <span class="name">Harsh Kumar</span> </div>
+        <br>
+        <img id="harsh-photo" src="/static/harsh-photo.jpg">
+
+        <div class="name" id="name">HARSH KUMAR : A Full Stack Developer with Expertise in Django</div>
+        </div>
+        {% comment %} <div class="pdf-container">
+            <iframe class="pdf-iframe" src="{% static 'Harsh_Resume.pdf' %}" ></iframe>
+        </div> {% endcomment %}
+<div id="lines">
+
+<div id="line1">He have a robust background in developing web applications using Django, a powerful framework for building scalable and secure web solutions. With my expertise in both front-end and back-end development, I can successfully delivered projects that meet client requirements and industry standards.</div>
+<br>
+<div id="line2">Here are some highlights of my skills and experience:
+
+<div id="line3">- Proficiency in Django framework for rapid and efficient development of web applications.</div>
+<div id="line4">- Strong knowledge of front-end technologies such as HTML, CSS, JavaScript, and responsive design principles.</div>
+<div id="line5">- Experience in database management and integration using Django ORM and other tools.</div>
+<div id="line6">- Ability to work collaboratively in agile environments, ensuring timely delivery and high-quality code.</div>
+<div id="line7">- Continuous learning and adaptation to new technologies and best practices in web development.</div>
+<br>
+<div id="line8">He is actively seeking new opportunities to contribute my skills and expertise to innovative projects and teams.
+
+</div id="line9"> He is passionate about creating robust and user-friendly web solutions that drive business growth and customer satisfaction.</div>
+
+</div>
+
+    {% else %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">You can access information about <span class="name">Harsh Kumar</span> only after logged in</div>
+       <br> <a href="/login_system/login"><button class="button-85" type="button">Login</button></a> 
+       <br>
+       <br>
+        <img id="harsh-photo" src="/static/harsh-photo.jpg">
+        <div class="name" id="name">HARSH KUMAR : A Full Stack Developer with Expertise in Django</div>
+
+
+    {% endif %}
+
+
+    <script>
+        gsap.to('#alert', {
+            duration: 3,
+            ease: 'power1.inOut',
+            repeat: -1,
+            yoyo: true,
+            opacity: 0,
+        });
+
+        gsap.to('#harsh-photo', {
+            duration: 3,
+            ease: 'power1.inOut', // Use an easing function for smoother animation
+            repeat: -1, // Infinite loop
+            yoyo: true,
+            rotationY: 180 // Flip the image around the Y-axis
+          });
+
+           // Create a timeline
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#lines",
+      start: "top 40%",
+      end: "bottom 80%",
+      markers: true, // Set to true to show markers
+      scrub: true, // Set to true for smooth scrolling
+    },
+  });
+
+  // Define animations for each line
+  timeline.from("#line1", { x: "100%", duration: 1.4 });
+  timeline.from("#line2", { x: "100%", duration: 1.4 }, "-=0.8"); // Start after 0.8 seconds
+  timeline.from("#line3", { x: "100%", duration: 1.4 }, "-=0.8");
+  timeline.from("#line4", { x: "100%", duration: 1.4 }, "-=0.8");
+  timeline.from("#line5", { x: "100%", duration: 1.4 }, "-=0.8");
+  timeline.from("#line6", { x: "100%", duration: 1.4 }, "-=0.8");
+  timeline.from("#line7", { x: "100%", duration: 1.4 }, "-=0.8");
+  timeline.from("#line8", { x: "100%", duration: 1.4 }, "-=0.8");
+  timeline.from("#line9", { x: "100%", duration: 1.4 }, "-=0.8");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<title>Register</title>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    }
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius:12px;
+
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius:12px;
+
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+  display:block;
+}
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+} 
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+  
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  border-radius:20px;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+#avatar{
+    {% comment %} padding: 0px;
+    margin: 0px;
+    padding-top:0px;
+    height: 76px;
+    width: 76px; {% endcomment %}
+    max-width: 20%; 
+    height: auto;
+}
+#statement{
+  color: #4890fe;
+  display: block;
+}
+
+#id01{
+    display:block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container, .imgcontainer{
+    margin-top: 0px;
+    padding-top: 0px;
+    background:  rgb(27,27,22);
+ 
+}
+
+.animate{
+    background:  rgb(27,27,22);
+
+}
+
+#avatar.avatar{
+    max-width: 20%; 
+    height: auto;
+    padding: 10px;
+    margin: 0px;
+    background:  rgb(27,27,22);
+
+}
+#login{
+    font-size:70px;  
+    text-align: center;
+    color:#4890fe;
+
+}
+
+#submit{
+    background-color:#4890fe;
+    font-size:20px;
+    color:#4890fe;
+    
+}
+.register{
+    background-color:#4890fe;
+
+    width: auto;
+    padding: 10px 18px;
+}
+.eye-icon{
+    color:black;
+}
+.imgcontainer, #last_container{
+    border-radius:20px;
+  
+}
+#main_container{
+    box-shadow: 5px 5px 8px rgb(100, 149, 237, 0.5), 
+    10px 10px 8px 	rgb(100, 149, 237, 0.5), 
+    15px 15px 8px 	rgb(100, 149, 237, 0.5);
+    border-radius:20px;
+    border: 0.1px solid blue;
+    
+    padding-top:0px;
+    margin-top:0px;
+ 
+}
+#pass{
+    color:#4890fe;
+
+}
+
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #0000CC,
+    #3300CC,
+    #6600CC,
+    #0033CC,
+    #3333CC,
+    #6633CC,
+    #0066CC,
+    #3366CC,
+    #6666CC ,
+    #0099CC,
+    #3399CC,
+    #6699CC,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.image1 , .image2{
+  border-radius: 50%;
+    min-width:250px;
+  max-width: 20%; 
+  height: auto;
+  padding: 10px;
+  margin: 0px;
+  background:  rgb(27,27,22);
+  border : 1px solid blue;
+  margin-top: 2px;
+}
+.image-container {
+    position: relative;
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+  }
+  
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+  
+  #twitter,#facebook,#google,#linkedin,#youtube,#instagram {
+    color:white ;
+    mix-blend-mode: color-dodge; /* or any other blend mode you prefer */
+
+    padding: 0px ;
+    margin:20px;
+    scale:200%;
+    
+  }
+  #avatars{
+    display:block;
+  }
+  
+ #social{
+  display:flex;
+  flex-direction:row;
+  
+  justify-content: flex-end;
+ }
+
+ #last_container{
+  
+  display:flex;
+  flex-direction:row;
+
+ }
+  #suggestion{
+    
+    padding: 0px ;
+    margin:20px;
+  }
+  
+{% comment %} #social {
+  display: flex;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #social {
+    margin-top: 0;
+  }
+}
+#social {
+  display: flex;
+  justify-content: space-around;
+} {% endcomment %}
+
+#social {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  max-width: 500px; /* Adjust this value as needed */
+  margin: 0 auto; /* Center the icons horizontally */
+}
+
+#social span {
+  margin-bottom: 10px; /* Add spacing between rows */
+}
+#twitter:hover, #facebook:hover, #google:hover, #linkedin:hover, #youtube:hover, #instagram:hover {
+  color: #4890fe;
+
+}
+
+@media only screen and (max-width: 768px) {
+  #social {
+    justify-content: center; /* Center icons on smaller screens */
+  }
+
+  #social span {
+    flex-basis: calc(50% - 10px); /* Two icons per row on smaller screens */
+  }
+}
+
+#images{
+  display:flex;
+  text-align: center;
+  align-items: center;
+  justify-content:center;
+}
+.image2{
+  text-align: center;
+  justify-content:center;
+  translateY: auto;
+}
+#alert{
+  padding: 10px;
+  margin: 40px;
+}
+
+#main_head{
+  font-size:120px;
+  text-align:center;
+  color: #4890fe;
+
+}
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  #main_head {
+    font-size: 80px; /* Adjust the font size for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #main_head {
+    font-size: 60px; /* Further adjust font size for mobile devices */
+  }
+}
+{% comment %} @media only screen and (max-width: 768px) {
+  .image1,
+  .image2 {
+    width: 50%; /* Display images at 50% width on smaller screens */
+  }
+} {% endcomment %}
+</style>
+</head>
+<body>
+
+<div id="id01" class="modal">
+  <div id="main_head">Login Portal</div>
+    <form class="modal-content animate" id="my_modal" action="/login_system/user-registeration/" method="post">
+        {% csrf_token %}
+        <div id="main_container">
+    <div class="imgcontainer">
+      {% comment %} <img id="avatar" src="data:image/jpeg;base64,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" alt="Avatar" class="avatar"> {% endcomment %}
+        
+  <span id="images">
+    {% comment %} <img class="image1" id="avatar" src="data:image/jpeg;base64,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" alt="Image 1"> {% endcomment %}
+     <img class="image2" id="avatar" src="https://img.freepik.com/premium-photo/graphic-designer-digital-avatar-generative-ai_934475-9292.jpg" alt="Image 2">
+  </span>  
+    <div id="statement">Registrer Yourself</div>
+    </div>
+
+{% for message in messages%}
+<div class="alert alert-{{message.tags}}" id="alert" role="alert">
+  {{message}}
+</div>
+<br>
+
+{% endfor%}
+
+    <div class="container">
+      <label for="uname"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" id="email" name="email" required>
+      
+<br> 
+<br> 
+<label for="uname"><b>Username</b></label>
+<input type="text" placeholder="Enter Username" name="username" required>
+<br>
+<br>
+      <label for="psw"><b>Password</b></label>
+      <div style="position:relative;">
+        <input type="password" required id="password" placeholder="Password" name="password"/>
+        <i class="fa fa-eye eye-icon" onclick="togglePasswordVisibility('password')"></i>
+    </div>
+<br>
+    <label for="psw"><b>Confirm Password</b></label>
+    <div style="position:relative;">
+      <input type="password" required id="confirm_password" placeholder="Password" name="confirm_password"/>
+      <i class="fa fa-eye eye-icon" onclick="confirm_togglePasswordVisibility('confirm_password')"></i>
+  </div>
+<br>
+
+      <button type="submit" class="button-85" onclick="my_fun2()" accordion id="submit"><b>Register</b></button>
+    
+    </div>
+
+    <div class="container" id="last_container" >
+      <span ><button type="button" id="animation_zoom_out" onclick="my_fun()" class="register">Login</button></span>
+      <span id="suggestion">Login , if you already regisered</span>
+    <span id="social">
+      <span><i class="fa fa-twitter" id="twitter"></i></span>
+      <span><i class="fa fa-facebook" id="facebook"></i></span>
+      <span><i class="fa fa-instagram" id="instagram"></i></span>
+      <span><i class="fa fa-google" id="google"></i></span>
+      <span><i class="fa fa-youtube" id="youtube"></i></span>
+      <span><i class="fa fa-linkedin" id="linkedin"></i></span>
+    </span>
+    </div>
+  </form>
+</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+function togglePasswordVisibility(inputId) {
+  const passwordInput = document.getElementById(inputId);
+  passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+}
+function confirm_togglePasswordVisibility(inputId) {
+  const passwordInput = document.getElementById(inputId);
+  passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+}
+
+
+function my_fun() {
+  console.log('myfun');
+  // Zoom out animation using GSAP
+  gsap.to('#my_modal', {
+    duration: 0.4,
+    scale: 0,
+    onComplete: function() {
+      window.location.href = '/login_system/login/';
+    }
+  });
+}
+
+function my_fun2() {
+  console.log('myfun2');
+
+  var inputValid = checkInputValidity(); // Check if input is valid
+
+  if (inputValid) {
+  // Zoom out animation using GSAP
+  gsap.to('#my_modal', {
+    duration: 0.4,
+    scale: 0,
+    onComplete: function() {
+      window.location.href = '/login_system/login/';
+    }
+  });
+}
+}
+
+function checkInputValidity() {
+  // Implement your logic to check if input is valid
+  // For example, check if required fields are filled
+  var email = document.getElementById('email').value;
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  var confirm_password = document.getElementById('confirm_password').value;
+
+  return username !== '' && password !== '' && password !== '' && confirm_password !== ''; // Return true if both username and password are not empty
+}
+
+
+// GSAP timeline for the animation
+gsap.to('.image2', {
+  duration: 3,
+  ease: 'power1.inOut', // Use an easing function for smoother animation
+  repeat: -1, // Infinite loop
+  yoyo: true,
+  rotationY: 180 // Flip the image around the Y-axis
+});
+
+gsap.to('#main_head', {
+  duration:3,
+  ease: 'power1.inOut', // Use an easing function for smoother animation
+  y:80,
+  scale:1.2,
+  yoyo: true,
+  repeat:-1,
+})
+
+gsap.to('#alert', {
+  duration: 3,
+  ease: 'power1.inOut', // Use an easing function for smoother animation
+  repeat: -1, // Infinite loop
+  yoyo: true,
+  opacity: 0,
+});
+
+
+</script>
+
+</body>
+</html>

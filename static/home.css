@@ -1,0 +1,25 @@
+#image {
+    justify-content: center;
+    align-items: center;    
+    background-image: url('/static/harsh-photo.png');
+    width: 700px;
+    height: 700px;
+    /* background-color: blue; */
+    margin: 0 auto;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    -webkit-background-clip: text;
+    background-attachment: fixed;
+    -webkit-text-fill-color: pink;
+    border: 1px solid yellow;
+    background-clip: content-box; /* Define the background-clip property */
+}
+
+  body{
+    color:white;
+    background-color:black;
+    margin:px;
+
+  }
